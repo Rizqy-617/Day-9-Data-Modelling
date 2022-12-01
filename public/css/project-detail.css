@@ -1,0 +1,131 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #E3E7EB !important;
+}
+
+.btn.btn-primary {
+    background-color: orangered !important;
+    border: none;
+}
+
+.project-detail {
+    align-items: center;
+}
+
+.project-detail .container {
+    text-align: center;
+}
+
+.box {
+    display: flex;
+    height: 300px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.box .left-img {
+    display: flex;
+    flex: 50%;
+    justify-content: flex-end;
+}
+
+.box .left-img img {
+    width: 400px;
+    height: 300px;
+}
+
+.box .right-box {
+    display: flex;
+    flex: 50%;
+    justify-content: flex-start;
+}
+
+.right-content {
+    width: 350px;
+}
+
+.right-content h2 {
+    text-align: left;
+    margin-left: 37px;
+}
+
+.calender {
+    width: 250px;
+    margin-left: 20px;
+    display: flex;
+}
+
+.calender p {
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    float: right;
+}
+
+.calender img {
+    margin-right: 13.512px;
+    margin-left: 13.512px;
+    margin-top: 1.200px;
+    margin-top: 1.200px;
+    width: 32px;
+    float: left;
+}
+
+.clock {
+    width: 250px;
+    margin-left: 20px;
+    display: flex;
+}
+
+.clock p {
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    float: right;
+}
+
+.clock img {
+    margin-right: 13.512px;
+    margin-left: 13.512px;
+    margin-top: 1.200px;
+    margin-top: 1.200px;
+    width: 32px;
+    float: left;
+}
+
+.icon {
+    margin-top: 0px;
+}
+
+.icon-box {
+    display: flex;
+    border: 6px solid transparent;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+    min-height: 32px;
+    margin-left: 32px;
+    margin-right: 180px;
+}
+
+.icon img {
+    width: 30px;
+}
+
+.paragraf {
+    width: 100%;
+}
+
+.paragraf .list-paragraf {
+    width: 65%;
+    margin-top: 20px;
+    margin-left: 160px;
+}
+
+.paragraf .list-paragraf .paragraf-text {
+    text-align: justify;
+    padding-top: 20px;
+}

@@ -1,0 +1,16 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #E3E7EB !important;
+}
+
+.btn.btn-primary {
+    background-color: orangered !important;
+    border: none;
+}
+
+.intro-text {
+    text-align: justify;
+}

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link rel="icon" href="/public/img/brandred.png">
+    <link rel="stylesheet" href="/public/css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand  ms-5" href="/"><img src="/public/img/brandred.png" width="50px"></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/project">Add Project</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex justify-content-end">
+                <a href="/contact"><button type="button" class="btn btn-primary me-5">Contact Me</button></a>
+            </div>
+            <!-- Button navbar mobile start -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Button navbar mobile end -->
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    <main>
+        <!-- Card Start -->
+        <section class="px-3 px-lg-0">
+            <div class="container card my-5 p-5 rounded-4 border-0">
+                <div class="row">
+                    <div class="col-lg-7 col-12 my-3 order-lg-first order-last">
+                        <div class="intro-text">
+                            <h1>Hi Welcome to my hut</h1>
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero delectus fuga temporibus tempora doloribus odio natus eum quasi? Perspiciatis tempora optio incidunt vero molestiae repellat in aliquam ex libero! Nemo debitis tempora exercitationem consequuntur repudiandae dignissimos facere blanditiis placeat? Quas pariatur aut quisquam fugit dicta modi molestias exercitationem assumenda doloribus magnam totam fuga quibusdam animi qui molestiae quasi sunt, cumque autem architecto laudantium? Accusamus sed qui at omnis eaque obcaecati.
+                            </p>
+                            <div class="w-100 my-1 py-3">
+                                <a href="/contact" class="d-inline-block nav-link">
+                                    <button class="bg-dark text-white rounded-5 fs-4 px-4 py-1 me-3">Contact</button>
+                                </a>
+                                <a href="#" class="d-inline-block nav-link">
+                                    <p class="fs-4">download CV <img src="/public/img/download.png" width="32px"></p>
+                                </a>
+                            </div>
+                            <div class="social-media mt-1">
+                                <a href="#" class="nav-link d-inline-block me-4">
+                                    <img src="/public/img/linkedin.png" width="32px">
+                                </a>
+                                <a href="#" class="nav-link d-inline-block me-4">
+                                    <img src="/public/img/instagram.png" width="32px">
+                                </a>
+                                <a href="#" class="nav-link d-inline-block me-3">
+                                    <img src="/public/img/facebook-circular-logo.png" width="32px">
+                                </a>
+                                <a href="#" class="nav-link d-inline-block me-4">
+                                    <img src="/public/img/twitter.png" width="32px">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-10 my-3 order-lg-last order-first">
+                        <div class="card rounded-4">
+                            <div class="card-img">
+                                <img src="/public/img/Facebook-default-no-profile-pic.jpg" class="img-fluid rounded-4">
+                            </div>
+                            <div class="card-body">
+                                <div class="card-title text-center">
+                                    <h1>Rizqy Andriansyah</h1>
+                                    <p>Fullstack Developer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Card End -->
+        <!-- My Project Start -->
+        <section>
+            <div class="container card my-2">
+                <h1 class="text-center py-5">My Project</h1>
+                <div class="row row-cols-2 row-cols-md-3 g-4 mb-5">
+                    <!-- Dynamic Content -->
+                    {{range $index, $data := .Projects}}
+                    <div class="col">
+                        <div class="card">
+                            <img src="{{$data.Image}}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="/projectDetail/{{$index}}">{{$data.Projectname}}</a></h5>
+                                <h6>Duration : {{ $data.Duration}} </h6>
+                                <p class="card-text">{{$data.Description}}</p>
+                                <div class="tech-icon fs-3">
+                                    {{ range $index, $data := $data.Technologies
+                                    }}
+                                    <span class="icon">
+                                        <img src="/public/img/{{ $data }}.svg" alt="Icon" width="20" height="20" />
+                                    </span>
+                                    {{ end }}
+                                </div>
+                                <div class="card-button w-100 d-flex justify-content-between">
+                                    <button class="btn btn-dark w-50 m-1"><a href="/editProject/{{$index}}">Edit</a></button>
+                                    <!-- Kurung Kurawal aduhhhhhh jangan lupa harus dua -->
+                                    <button class="btn btn-dark w-50 m-1"><a href="/deleteProject/{{$index}}">Delete</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{end}}
+                    <!-- <div class="col">
+                        <div class="card">
+                            <img src="/public/img/luca-bravo-XJXWbfSo2f0-unsplash.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <div class="tech-icon fs-3">
+                                    <img src="/public/img/react-js-icon.svg" width="32px">
+                                    <img src="/public/img/node-js-icon.svg" width="32px">
+                                </div>
+                                <div class="card-button w-100 d-flex justify-content-between">
+                                    <button class="btn btn-dark w-50 m-1">Edit</button>
+                                    <button class="btn btn-dark w-50 m-1">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="/public/img/luca-bravo-XJXWbfSo2f0-unsplash.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer</p>
+                                <div class="tech-icon fs-3">
+                                    <img src="/public/img/react-js-icon.svg" width="32px">
+                                    <img src="/public/img/node-js-icon.svg" width="32px">
+                                </div>
+                                <div class="card-button w-100 d-flex justify-content-between">
+                                    <button class="btn btn-dark w-50 m-1">Edit</button>
+                                    <button class="btn btn-dark w-50 m-1">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="/public/img/luca-bravo-XJXWbfSo2f0-unsplash.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <div class="tech-icon fs-3">
+                                    <img src="/public/img/react-js-icon.svg" width="32px">
+                                    <img src="/public/img/node-js-icon.svg" width="32px">
+                                </div>
+                                <div class="card-button w-100 d-flex justify-content-between">
+                                    <button class="btn btn-dark w-50 m-1">Edit</button>
+                                    <button class="btn btn-dark w-50 m-1">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+        <!-- My Project End -->
+    </main>
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>
